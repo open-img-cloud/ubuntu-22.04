@@ -25,7 +25,7 @@ Ubuntu 22.04 LTS has standard support until **April 2027** (then Ubuntu Pro / ES
 
 ## Image
 
-- File: `ubuntu-22.04-<version>-x86_64.qcow2`, where `<version>` is
+- File: `ubuntu-<version>-x86_64.qcow2`, where `<version>` is
   `<release>-<upstream serial>` (e.g. `22.04-20261106`).
 - Default user: `ubuntu` (SSH key from cloud-init, passwordless sudo).
 - The root filesystem grows to the flavor disk on first boot.
@@ -34,12 +34,12 @@ Ubuntu 22.04 LTS has standard support until **April 2027** (then Ubuntu Pro / ES
 
 ```sh
 V=22.04-20261106
-curl -fLO https://images.openimages.cloud/ubuntu-22.04/$V/ubuntu-22.04-$V-x86_64.qcow2
+curl -fLO https://images.openimages.cloud/ubuntu-22.04/$V/ubuntu-$V-x86_64.qcow2
 
 openstack image create \
     --disk-format qcow2 --container-format bare \
     --property hw_qemu_guest_agent=yes \
-    --file ubuntu-22.04-$V-x86_64.qcow2 \
+    --file ubuntu-$V-x86_64.qcow2 \
     'Ubuntu 22.04 LTS '$V
 ```
 
